@@ -11,7 +11,7 @@ application's name.
 ## Import the package
 
 ```bash
-    go get "github.com/go-eureka/eureka"
+     go get github.com/oneils/go-eureka-client
 ```
 
 Create Eureka client by specifying http client and Eureka server's URL.
@@ -19,6 +19,14 @@ Create Eureka client by specifying http client and Eureka server's URL.
 ```go
    client := http.Client{Timeout: 1 * time.Second}
     c := eureka.NewClient(&client, server.URL+"/eureka/")
+```
+
+## Import the package
+
+```go
+    import (
+		"github.com/oneils/go-eureka-client/pkg/eureka"
+)
 ```
 
 ## Fetch all Eureka applications

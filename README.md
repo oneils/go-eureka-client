@@ -1,5 +1,7 @@
 # go-eureka-client
 
+![go-eureka-client](https://github.com/oneils/go-eureka-client/actions/workflows/go.yml/badge.svg)
+
 Eureka client for Go projects for fetching all registered application in Eureka or fetching any available instance IP by
 application's name.
 

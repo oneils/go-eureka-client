@@ -50,7 +50,7 @@ func TestClient_FetchAll(t *testing.T) {
 	})
 
 	t.Run("Should return error when can't connect to Eureka", func(t *testing.T) {
-		expectedError := "Failed to fetch Eureka response: Get \"http://localhost:9999/eureka/\": dial tcp 127.0.0.1:9999: connect: connection refused"
+		expectedError := "Failed to fetch Eureka response:"
 
 		client := http.Client{Timeout: 1 * time.Second}
 		c := eureka.NewClient(&client, "http://localhost:9999/eureka/")
@@ -58,7 +58,7 @@ func TestClient_FetchAll(t *testing.T) {
 		_, err := c.FetchAll()
 
 		assert.Error(t, err)
-		assert.Equalf(t, expectedError, err.Error(), "Expected error message: %s but got %s", expectedError, err.Error())
+		assert.Containsf(t, err.Error(), expectedError, "Expected error message: %s but got %s", expectedError, err.Error())
 	})
 }
 

@@ -18,7 +18,7 @@ Create Eureka client by specifying http client and Eureka server's URL.
 
 ```go
    client := http.Client{Timeout: 1 * time.Second}
-    c := eureka.NewClient(&client, server.URL+"/eureka/")
+    c := eureka.NewClient(&client, eurekaServer.URL+"/eureka/apps")
 ```
 
 ## Import the package
@@ -32,7 +32,7 @@ Create Eureka client by specifying http client and Eureka server's URL.
 ## Fetch all Eureka applications
 
 ```go
-   apps, err := c.GetApplications()
+   apps, err := c.FetchAll()
    if err != nil {
        log.Fatal(err)
    }
@@ -44,7 +44,7 @@ Create Eureka client by specifying http client and Eureka server's URL.
 ## Fetch Application IP by Application name
 
 ```go
-   app, err := c.GetApplicationByName("my-app")
+   app, err := c.FetchIPAddress("my-app")
    if err != nil {
        log.Fatal(err)
    }
